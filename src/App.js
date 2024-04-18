@@ -9,12 +9,14 @@ import Quiz from './components/beach-quiz';
 import ScenarioComponent from './components/scenario-component';
 import Attributions from './components/attribution';
 import NotFoundPage from './components/not-found';
+import Password from './components/password';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Password />} />
+        <Route path="/password" element={<Password />} />
         <Route path="/home" element={<Homepage />} />
         <Route path="/road-safety" element={<RoadSafety />} />
         <Route path="/beach-safety" element={<BeachSafety />} />
