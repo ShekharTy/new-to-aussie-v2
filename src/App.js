@@ -12,7 +12,7 @@ import NotFoundPage from './components/not-found';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/new-to-aussie-v2/">
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
