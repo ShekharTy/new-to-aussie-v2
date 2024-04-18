@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+body {
+  font-family: 'Cabin';
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.sidebar {
+  flex: 0 0 350px;
+  background-color: #0085FF;
+  padding: 30px;
+  min-height: calc(100vh - 60px); 
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  color: white;
+}
+
+.sidebar h2, .sidebar ul li {
+  margin-top: 0;
+  color: white;
+}
+.sidebar h2{
+  font-size: large;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%; 
+}
+
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+  font-size: small;
+}
+
+.sidebar ul li:hover, .sidebar ul li.active {
+  background-color: #1C5D99;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; 
+}
+
+
+.main-content {
+  margin-left: 0px;
+  width: calc(100% - 360px);
+}
+
+
+  .beach-safety-list {
+    list-style-type: none;
+    counter-reset: beach-counter;
+    padding-left: 0;
+  }
+  
+  .beach-safety-list li {
+    counter-increment: beach-counter;
+    margin-bottom: 15px;
+    color: blue;
+  }
+  
+  .beach-safety-list li::before {
+    content: counter(beach-counter) ".";
+    color: #007bff; 
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  

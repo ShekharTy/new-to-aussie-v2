@@ -1,0 +1,101 @@
+/* CSS for changing the color of the page background */
+body {
+  background-color: #f0f0f0; /* Change the color code to the desired background color */
+}
+
+/* Style titles with a specific color */
+h1, h2, h3, h4, h5, h6 {
+  color: #006eff; /* Replace #ff0000 with the color code you want */
+}
+
+
+/* Add margin above and below paragraphs */
+p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* Ensure the entire content is centered within the page */
+#swim {
+  max-width: 1200px; /* Set maximum width for content */
+  margin: 0 auto; /* Center content horizontally */
+  padding: 20px; /* Add padding around content */
+}
+
+/* Banner styles */
+.banner {
+  text-align: center;
+  margin-bottom: 20px; /* Add margin to separate the banner from the rest of the content */
+}
+
+.banner-image {
+  max-width: 100%; /* Ensure the banner image fits within its container */
+  max-height: 500px; /* Set maximum height for the banner image */
+}
+
+
+/* Add margin between the banner text and the rest of the content */
+h2 {
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Adjust styles for gallery items */
+.gallery {
+  padding: 0;
+  margin: 0;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.gallery-item__image {
+  width: 500px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.gallery-item__text {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.gallery-item__title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.gallery-item__facts {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Adjust styles for custom arrows */
+.custom-arrows {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.custom-arrow {
+  cursor: pointer;
+  font-size: 24px; /* Adjust as needed */
+  margin: 0 10px; /* Adjust as needed */
+}
+
+/* Adjust styles for flag counter */
+.flag-counter {
+  margin-top: 20px; /* Add some space above */
+  margin-bottom: 20px; /* Add some space below */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+}

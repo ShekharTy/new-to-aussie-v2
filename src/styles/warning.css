@@ -1,0 +1,49 @@
+.gallery {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gallery-item__image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-item__text {
+    text-align: center;
+  }
+  
+  .gallery-item__title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .gallery-item__facts {
+    color: #666;
+  }
+  .custom-arrows {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .custom-arrow {
+    cursor: pointer;
+    font-size: 24px; /* Adjust as needed */
+    margin: 0 10px; /* Adjust as needed */
+  }
+  
+  
+  .flag-counter {
+    margin-top: 20px; /* Add some space above */
+    margin-bottom: 20px; /* Add some space below */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+  }
+  

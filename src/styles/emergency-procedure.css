@@ -1,0 +1,52 @@
+.emergency-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .cards-container-ep {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-ep {
+    cursor: pointer;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 300px;
+  }
+  
+  .card-ep:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .card-ep img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .card-ep h3 {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .procedure-detail {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+  }
+  
+  .procedure-detail h2 {
+    margin-top: 0;
+  }
+  

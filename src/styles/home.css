@@ -1,0 +1,132 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+html,
+body,
+.page-container-home {
+    height: 100%;
+    margin: 0;
+}
+
+.page-container-home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    flex: 1;
+}
+
+.image-message-container-home {
+    margin-top: 0px;
+    position: relative;
+    text-align: center;
+    font-family: 'Cabin';
+}
+
+.welcome-message-home {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: scale(1.85);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.welcome-message-home h1, .welcome-message-home h4{
+    color: black;
+}
+.bg-img {
+    width: 1800px;
+    height: 700px;
+}
+
+.safety-sections {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.safety-container {
+    position: relative;
+    width: 45%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.safety-container:hover {
+    transform: scale(1.05);
+}
+
+.road-safety {
+    background: url('../data/road.jpg') no-repeat center center/cover;
+    height: 500px;
+}
+
+.beach-safety {
+    background: url('../data/beach.jpg') no-repeat center center/cover;
+    height: 500px;
+}
+
+.safety-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 30px;
+    font-family: 'Cabin';
+
+}
+
+.content-wrap {
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Cabin';
+}
+
+.safety-guides {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.safety-guide {
+    flex-basis: 48%;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.safety-guide:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.safety-guide h3 {
+    margin-top: 0;
+}
+
+.start-exploring-btn, .learn-more-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0085FF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.start-exploring-btn:hover, .learn-more-btn:hover {
+    background-color: darkgreen;
+} */

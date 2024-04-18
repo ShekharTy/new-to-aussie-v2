@@ -1,0 +1,68 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+.footer {
+  background-color: #BEDCFE;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cabin';
+}
+
+.footer-upper {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+  text-align: left;
+  flex-wrap: wrap; 
+}
+
+.project-description, .useful-links {
+  flex: 1; 
+  margin: 50px; 
+}
+.project-description{
+  margin-left: 100px;
+}
+.useful-links {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 50px; 
+}
+
+.footer-lower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer-link {
+  cursor: pointer;
+  color: #007bff;
+  padding: 10px;
+}
+
+.back-to-top {
+  position: absolute;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  right: 80px; 
+  bottom: 20px;
+}
+
+.back-to-top:hover {
+  background-color: #0056b3;
+}
+
+.contact-info, .copyright {
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+} */

@@ -1,0 +1,41 @@
+.scenario-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 100px; 
+  font-family: 'Cabin', sans-serif; /* Apply Cabin font to all text */
+}
+
+.scenario-container + .scenario-container {
+  margin-top: 20px; 
+}
+
+.choices button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.feedback {
+  margin-top: 20px;
+}
+
+.feedback p {
+  font-size: medium;
+  color: red;
+  font-style: italic;
+}
+
+/* To reduce image size */
+.scenario-container img {
+  max-width: 20%;
+  height: auto;
+}
+
+h2 {
+  color: #1E90FF; 
+}
