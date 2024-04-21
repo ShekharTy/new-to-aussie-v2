@@ -1,49 +1,107 @@
+/* Assuming this is your CSS file (warning.css) */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #006eff; /* Adjust color as needed */
+}
+
+p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#warning {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 28px; /* Adjust font size as needed */
+  font-weight: bold; /* Add font weight for emphasis */
+  color: #006eff; /* Adjust color as needed */
+}
+
 .gallery {
-    padding: 0;
-    margin: 0;
-  }
-  
-  .gallery-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .gallery-item__image {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .gallery-item__text {
-    text-align: center;
-  }
-  
-  .gallery-item__title {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .gallery-item__facts {
-    color: #666;
-  }
-  .custom-arrows {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Adjust as needed */
-  }
-  
-  .custom-arrow {
-    cursor: pointer;
-    font-size: 24px; /* Adjust as needed */
-    margin: 0 10px; /* Adjust as needed */
-  }
-  
-  
-  .flag-counter {
-    margin-top: 20px; /* Add some space above */
-    margin-bottom: 20px; /* Add some space below */
-    display: flex;
-    justify-content: center; /* Horizontally center */
-  }
-  
+  padding: 0;
+  margin: 0;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-item__image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.gallery-item__text {
+  text-align: center;
+}
+
+.gallery-item__title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.gallery-item__facts {
+  color: #666;
+}
+
+.navigation-buttons {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-arrows {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.custom-arrow {
+  cursor: pointer;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.InstructionsWarningFlags {
+  font-style: italic;
+  color: white;
+  font-size: 18px; /* Adjust font size as needed */
+  background-color: blue;
+  border: 2px solid lavenderblush;
+  padding: 15px;
+
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.flag-counter {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.flag-box {
+  border: 2px solid darkgray; /* Fix border style */
+  padding: 20px;
+  margin: 20px;
+  background-color: lightcyan;
+}

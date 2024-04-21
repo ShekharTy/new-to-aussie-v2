@@ -1,41 +1,44 @@
 .scenario-container {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 100px; 
-  font-family: 'Cabin', sans-serif; /* Apply Cabin font to all text */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 20px; /* Add spacing between scenarios */
+  border: 2px solid #4a90e2; /* Add blue border */
 }
 
-.scenario-container + .scenario-container {
-  margin-top: 20px; 
+.scenario-container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.choices button {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
+.scenario-description {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.choices-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.choice-button {
+  background-color: #4a90e2;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 16px;
   border: none;
-  background-color: #007bff;
-  color: #fff;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.feedback {
-  margin-top: 20px;
+.choice-button:hover {
+  background-color: red;
 }
 
-.feedback p {
-  font-size: medium;
-  color: red;
+.feedback-container {
+  margin-top: 16px;
   font-style: italic;
-}
-
-/* To reduce image size */
-.scenario-container img {
-  max-width: 20%;
-  height: auto;
-}
-
-h2 {
-  color: #1E90FF; 
 }

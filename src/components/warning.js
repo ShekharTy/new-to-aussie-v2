@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import arrow icons
 import '../styles/warning.css';
 
 
@@ -75,21 +74,20 @@ function Warning() {
         setFlagCounter(currentSlide + 1); // Slide index starts from 0, so add 1
     };
 
-    // Function to handle clicking on the left arrow
-    const handleLeftArrowClick = () => {
+    // Function to handle clicking on the previous button
+    const prevSlide = () => {
         sliderRef.current.slickPrev(); // Go to the previous slide
     };
 
-    // Function to handle clicking on the right arrow
-    const handleRightArrowClick = () => {
+    // Function to handle clicking on the next button
+    const nextSlide = () => {
         sliderRef.current.slickNext(); // Go to the next slide
     };
 
     return (
-        <div id="swim">
-            <h2>Learn Beach Warning Signs</h2>
-
-            <h3>What are Beach Warning Signs?</h3>
+        <div id="warning">
+            <h2>Welcome to the section dedicated to beach warning signs learning!</h2> 
+            <p className="InstructionsWarningFlags">Click on  below previous and next buttons to learn about each warning signs meaning.</p>
             <p>Diamond-shaped signs in yellow and black serve as warnings about potential hazards at the beach.</p>
             
             <h3>Importance of Beach Warning Signs</h3>
@@ -98,8 +96,7 @@ function Warning() {
             prohibited activities, and other risks specific to the beach environment. 
             By understanding and adhering to the information conveyed through these signboards, beach visitors can make informed decisions to stay safe, prevent accidents, and ensure an enjoyable beach experience for themselves and others..
             </p> 
-
-
+            <div className="flag-box">
             <Slider
                 ref={sliderRef}
                 dots={true}
@@ -119,16 +116,14 @@ function Warning() {
                     />
                 ))}
             </Slider>
-
-            {/* Custom arrow components with click event handlers */}
-            <div className="custom-arrows">
-                <FaArrowLeft className="custom-arrow arrow-left" onClick={handleLeftArrowClick} />
-                <FaArrowRight className="custom-arrow arrow-right" onClick={handleRightArrowClick} />
-            </div>
-            
             {/* Flag Counter */}
             <div className="flag-counter"> Warning Sign {flagCounter} / {imageData.length}</div>
-
+            {/* Navigation buttons */}
+            <div className="navigation-buttons">
+                <button onClick={prevSlide} style={{ backgroundColor: 'blue' }}>Previous Flag</button>
+                <button onClick={nextSlide} style={{ backgroundColor: 'blue' }}>Next Flag</button>
+            </div>
+        </div>
         </div>
          
     );
