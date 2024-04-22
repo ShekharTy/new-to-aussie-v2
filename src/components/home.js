@@ -10,7 +10,7 @@ function Homepage() {
     let navigate = useNavigate();
 
     useEffect(() => {
-        document.title = `Home`;
+        document.title = `New To Aussie - Home`;
     });
 
     const handleNavigate = (path) => {
