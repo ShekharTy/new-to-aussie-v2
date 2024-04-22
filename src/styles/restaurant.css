@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+.restaurant-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Cabin';
+    color: black;
+}
+
+.restaurant-container h1 {
+    margin-top: 0;
+    color: black; 
+    padding: 20px; 
+    font-size: large; 
+}
+
+.restaurant-sidebar {
+    flex: 0 0 300px; 
+    background-color: #0085FF;
+    padding: 30px;
+    min-height: 100vh; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    color: white;
+}
+
+.restaurant-sidebar h1, .restaurant-sidebar ul li {
+    margin-top: 0;
+    color: white;
+}
+.restaurant-sidebar h1{
+    padding: 10px;
+    font-size: large;
+}
+.restaurant-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.restaurant-sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: small;
+}
+
+.restaurant-sidebar li:hover, .restaurant-sidebar ul li.active {
+    background-color: #1C5D99;
+}
+
+
+.content {
+    flex-grow: 1;
+    padding: 50px;
+    overflow: hidden; 
+    width: 0; 
+}
+

@@ -55,6 +55,7 @@ function BeachSafety() {
       <Header />
       <div className="body">
         <div className="sidebar">
+          
           <h2>Beach Learning Modules</h2>
           <ul>
             <li className={getListItemClass('Beach Safety & Regulation Signs')} onClick={() => setSelectedModule('Beach Safety & Regulation Signs')}>
@@ -64,6 +65,8 @@ function BeachSafety() {
               Beach Warning Signs
             </li>
           </ul>
+
+
           <h2>Check Your Learning</h2>
           <ul>
             <li className={getListItemClass('Quiz')} onClick={() => setSelectedModule('Quiz')}>

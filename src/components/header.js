@@ -37,6 +37,11 @@ function Header() {
           Beach Safety
         </button>
         <button 
+          className={`text-white px-3 py-2 rounded-md text-xl font-medium m-2 transition-colors duration-200 ${isActive('/beach-safety') ? 'bg-blue-700' : 'bg-transparent hover:bg-blue-700'}`} 
+          onClick={() => navigate('/restaurant')}>
+          Find Restaurants
+        </button>
+        <button 
           className={`text-white px-3 py-2 rounded-md text-xl font-medium m-2 transition-colors duration-200 ${isActive('/attribution') ? 'bg-blue-700' : 'bg-transparent hover:bg-blue-700'}`} 
           onClick={() => navigate('/attribution')}>
           Attributions
