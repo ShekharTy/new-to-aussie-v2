@@ -27,6 +27,11 @@ function Header() {
           Home
         </button>
         <button 
+          className={`text-white px-3 py-2 rounded-md text-xl font-medium m-2 transition-colors duration-200 ${isActive('/events') ? 'bg-blue-700' : 'bg-transparent hover:bg-blue-700'}`} 
+          onClick={() => navigate('/events')}>
+          Events
+        </button>
+        <button 
           className={`text-white px-3 py-2 rounded-md text-xl font-medium m-2 transition-colors duration-200 ${isActive('/road-safety') ? 'bg-blue-700' : 'bg-transparent hover:bg-blue-700'}`} 
           onClick={() => navigate('/road-safety')}>
           Road Safety
