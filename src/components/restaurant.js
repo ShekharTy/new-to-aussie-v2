@@ -5,6 +5,7 @@ import Footer from './footer';
 import CuisineData from '../data/cuisine.csv'; // Importing the CSV file
 import 'animate.css/animate.css';
 import bannerImage from '../data/restaurant_banner.jpg';  
+import SpinWheel from './spin-wheel';
 
 function RestaurantSearch() {
   const [selectedModule, setSelectedModule] = useState('');
@@ -221,9 +222,7 @@ function RestaurantSearch() {
   
       {/* Play Spin Wheel */}
       {selectedModule === 'Play Spin Wheel' && (
-        <div className="main-content">
-          <h1 className="mt-0 text-black py-5 px-20 text-lg">Play Spin Wheel Game</h1>
-        </div>
+        <SpinWheel />
       )}
       <Footer />
     </div>
