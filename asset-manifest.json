@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/new-to-aussie-v2/static/css/main.7cf39f7e.css",
-    "main.js": "/new-to-aussie-v2/static/js/main.78d2cf66.js",
+    "main.css": "/new-to-aussie-v2/static/css/main.0bd10944.css",
+    "main.js": "/new-to-aussie-v2/static/js/main.fabd6e44.js",
     "static/js/453.f6fb25a1.chunk.js": "/new-to-aussie-v2/static/js/453.f6fb25a1.chunk.js",
     "static/media/scenario1.mp4": "/new-to-aussie-v2/static/media/scenario1.5832d97458cf4b03178b.mp4",
+    "static/media/beach.jpg": "/new-to-aussie-v2/static/media/beach.9918111e70610e2c6a55.jpg",
     "static/media/scenario2.mp4": "/new-to-aussie-v2/static/media/scenario2.ca737512fbc78006e2e8.mp4",
     "static/media/scenario3.mp4": "/new-to-aussie-v2/static/media/scenario3.a8c3ea3a67ff746dcfb9.mp4",
+    "static/media/events.jpg": "/new-to-aussie-v2/static/media/events.7477cfa81acd263887d2.jpg",
+    "static/media/events_bg.jpg": "/new-to-aussie-v2/static/media/events_bg.c3f0a1cc710c01154f4a.jpg",
     "static/media/swim_banner.jpg": "/new-to-aussie-v2/static/media/swim_banner.d6a7ce60ac206aeb95ae.jpg",
     "static/media/bg2.jpg": "/new-to-aussie-v2/static/media/bg2.aa428b8940f96ced8602.jpg",
-    "static/media/beach.jpg": "/new-to-aussie-v2/static/media/beach.e4de36d4bfa2c04369ed.jpg",
-    "static/media/road.jpg": "/new-to-aussie-v2/static/media/road.bf7394d6b9baac092204.jpg",
+    "static/media/food.jpg": "/new-to-aussie-v2/static/media/food.f679b7edabcd7c6278e8.jpg",
     "static/media/logo.png": "/new-to-aussie-v2/static/media/logo.fcfa6652f2ae4a99dfa3.png",
+    "static/media/road.jpg": "/new-to-aussie-v2/static/media/road.d0de0a2b5a46550631c0.jpg",
     "static/media/vb_bg2.jpg": "/new-to-aussie-v2/static/media/vb_bg2.068042b3249c1fe70332.jpg",
     "static/media/flood.jpg": "/new-to-aussie-v2/static/media/flood.45c32ef690249b7eb3df.jpg",
     "static/media/warn_swim.png": "/new-to-aussie-v2/static/media/warn_swim.2cf36e2dfbdf41da6bfe.png",
@@ -49,12 +52,12 @@
     "static/media/slick.ttf": "/new-to-aussie-v2/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/new-to-aussie-v2/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/new-to-aussie-v2/index.html",
-    "main.7cf39f7e.css.map": "/new-to-aussie-v2/static/css/main.7cf39f7e.css.map",
-    "main.78d2cf66.js.map": "/new-to-aussie-v2/static/js/main.78d2cf66.js.map",
+    "main.0bd10944.css.map": "/new-to-aussie-v2/static/css/main.0bd10944.css.map",
+    "main.fabd6e44.js.map": "/new-to-aussie-v2/static/js/main.fabd6e44.js.map",
     "453.f6fb25a1.chunk.js.map": "/new-to-aussie-v2/static/js/453.f6fb25a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7cf39f7e.css",
-    "static/js/main.78d2cf66.js"
+    "static/css/main.0bd10944.css",
+    "static/js/main.fabd6e44.js"
   ]
 }
