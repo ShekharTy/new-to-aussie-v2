@@ -5,15 +5,15 @@ import Slider from "react-slick";
 import EventsBackground from '../data/events_bg.jpg';
 import '../styles/events.css';
 
-// Import slick carousel styles
+// Importing slick carousel styles
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Sample events data
+// Sample Events data for carousel to test UI
 const eventsData = [
-  { id: 1, title: 'Art Exhibition', category: 'Art', description: 'Explore the latest in contemporary art.', date: '2024-04-30', image: 'https://example.com/art.jpg' },
-  { id: 2, title: 'Tech Conference', category: 'Technology', description: 'Dive into the latest tech trends.', date: '2024-05-20', image: 'https://example.com/tech.jpg' },
-  { id: 3, title: 'Live Concert', category: 'Music', description: 'Experience thrilling live performances.', date: '2024-05-15', image: 'https://example.com/music.jpg' },
+  { id: 1, title: 'Art Exhibition', category: 'Art', description: 'Explore the latest in contemporary art.', date: '2024-04-30', image: 'https://s1.ticketm.net/dam/a/3e4/27d91783-83cf-41fa-a8bb-6700f3d8c3e4_1840461_RETINA_PORTRAIT_16_9.jpg' },
+  { id: 2, title: 'Paw Patrol', category: 'Technology', description: 'Dive into the latest for Paw Patrol', date: '2024-05-20', image: 'https://s1.ticketm.net/dam/a/836/a1014292-993f-4064-9338-b5ad1be13836_1798851_TABLET_LANDSCAPE_16_9.jpg' },
+  { id: 3, title: 'Live Concert', category: 'Music', description: 'Experience thrilling live performances.', date: '2024-05-15', image: 'https://s1.ticketm.net/dam/a/b29/baf37a3e-9c48-4826-a874-cf2fb8a1bb29_RETINA_LANDSCAPE_16_9.jpg' },
 ];
 
 function EventbriteEvents() {
@@ -43,7 +43,7 @@ function EventbriteEvents() {
         </div>
       </div>
       <div className="container mx-auto px-4 py-6">
-        <h2 className="text-2xl font-bold text-center mb-6">Current Events</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">Upcoming Events</h2>
         <Slider {...settings}>
           {eventsData.map(event => (
             <div key={event.id} className="p-4">
@@ -62,9 +62,10 @@ function EventbriteEvents() {
               <label htmlFor="category" className="font-bold mb-2 block">Categories</label>
               <select multiple size="4" id="category" className="border border-gray-300 rounded p-2 w-full">
                 <option value="Art">Art</option>
-                <option value="Technology">Technology</option>
-                <option value="Music">Music</option>
-                <option value="Film">Film</option>
+                <option value="Technology">Sport</option>
+                <option value="Music">Comedy</option>
+                <option value="Film">Music</option>
+                <option value="Film">Theatre</option>
               </select>
             </div>
             <div>

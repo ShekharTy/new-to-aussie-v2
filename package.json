@@ -51,6 +51,5 @@
     "gh-pages": "^6.1.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
-  },
-  "proxy": "http://localhost:3000/new-to-aussie-v2"
+  }
 }
