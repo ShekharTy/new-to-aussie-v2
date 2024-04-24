@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Footer from './footer';
 import Slider from "react-slick";
@@ -9,16 +9,37 @@ import '../styles/events.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Sample Events data for carousel to test UI
-const eventsData = [
-  { id: 1, title: 'Art Exhibition', category: 'Art', description: 'Explore the latest in contemporary art.', date: '2024-04-30', image: 'https://s1.ticketm.net/dam/a/3e4/27d91783-83cf-41fa-a8bb-6700f3d8c3e4_1840461_RETINA_PORTRAIT_16_9.jpg' },
-  { id: 2, title: 'Paw Patrol', category: 'Technology', description: 'Dive into the latest for Paw Patrol', date: '2024-05-20', image: 'https://s1.ticketm.net/dam/a/836/a1014292-993f-4064-9338-b5ad1be13836_1798851_TABLET_LANDSCAPE_16_9.jpg' },
-  { id: 3, title: 'Live Concert', category: 'Music', description: 'Experience thrilling live performances.', date: '2024-05-15', image: 'https://s1.ticketm.net/dam/a/b29/baf37a3e-9c48-4826-a874-cf2fb8a1bb29_RETINA_LANDSCAPE_16_9.jpg' },
-];
-
-function EventbriteEvents() {
-  const [selectedCategories, setSelectedCategories] = useState([]);
+function Events() {
+  const [eventsData, setEventsData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
+
+  const fetchEvents = async () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?dmaId=305&apikey=${apiKey}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const uniqueEvents = new Set();
+      const filteredEvents = [];
+
+      for (const event of data._embedded.events) {
+        if (!uniqueEvents.has(event.name)) {
+          uniqueEvents.add(event.name);
+          filteredEvents.push(event);
+          if (filteredEvents.length === 5) break;
+        }
+      }
+
+      setEventsData(filteredEvents);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   const settings = {
     dots: true,
@@ -28,7 +49,9 @@ function EventbriteEvents() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    cssEase: "linear"
+    cssEase: "linear",
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />
   };
 
   return (
@@ -46,11 +69,13 @@ function EventbriteEvents() {
         <h2 className="text-2xl font-bold text-center mb-6">Upcoming Events</h2>
         <Slider {...settings}>
           {eventsData.map(event => (
-            <div key={event.id} className="p-4">
-              <img src={event.image} alt={event.title} className="rounded-lg mb-4" />
-              <h3 className="text-lg font-bold">{event.title}</h3>
-              <p>{event.description}</p>
-              <span>{event.date}</span>
+            <div key={event.id} className="p-4 text-center">
+              <a href={event.url} target="_blank" rel="noopener noreferrer">
+                <img src={event.images[0].url} alt={event.name} className="rounded-lg mb-4 mx-auto" style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
+              </a>
+              <h3 className="text-lg font-bold">{event.name}</h3>
+              <p>{event.dates.start.localDate}</p>
+              <p className="text-gray-600">{event.classifications[0]?.segment.name}</p>
             </div>
           ))}
         </Slider>
@@ -80,4 +105,26 @@ function EventbriteEvents() {
   );
 }
 
-export default EventbriteEvents;
+function NextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "black", borderRadius: "50%" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "black", borderRadius: "50%" }}
+      onClick={onClick}
+    />
+  );
+}
+
+export default Events;

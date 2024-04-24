@@ -40,39 +40,33 @@ function Homepage() {
 
             <div className="w-full" style={{ padding: '0 20px' }}>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-8 max-w-full w-full" style={{ margin: '0 auto' }}>
-    <div className="relative min-h-[350px] min-w-[600px] col-span-1 lg:col-span-2 rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${eventImg})` }} onClick={() => handleNavigate('/events')}>
-        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
-            <div className="text-4xl font-semibold text-center text-white">Events</div>
-        </div>
-    </div>
-    <div className="relative min-h-[350px] min-w-[300px] rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${roadImg})` }} onClick={() => handleNavigate('/road-safety')}>
-        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
-            <div className="text-4xl font-semibold text-center text-white">Road Safety</div>
-        </div>
-    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-8 max-w-full w-full" style={{ margin: '0 auto' }}>
+                    <div className="relative min-h-[350px] min-w-[600px] col-span-1 lg:col-span-2 rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${eventImg})` }} onClick={() => handleNavigate('/events')}>
+                        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
+                            <div className="text-4xl font-semibold text-center text-white">Events</div>
+                        </div>
+                    </div>
+                    <div className="relative min-h-[350px] min-w-[300px] rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${roadImg})` }} onClick={() => handleNavigate('/road-safety')}>
+                        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
+                            <div className="text-4xl font-semibold text-center text-white">Road Safety</div>
+                        </div>
+                    </div>
 
-    <div className="relative min-h-[350px] min-w-[300px] rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${beachImg})` }} onClick={() => handleNavigate('/beach-safety')}>
-        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
-            <div className="text-4xl font-semibold text-center text-white">Beach Safety</div>
-        </div>
-    </div>
-    <div className="relative min-h-[350px] min-w-[500px] col-span-1 lg:col-span-2 rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${foodImg})` }} onClick={() => handleNavigate('/food-and-restaurants')}>
-        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
-            <div className="text-4xl font-semibold text-center text-white">Food and Restaurants</div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
-
-
-
-                    <Footer />
+                    <div className="relative min-h-[350px] min-w-[300px] rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${beachImg})` }} onClick={() => handleNavigate('/beach-safety')}>
+                        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
+                            <div className="text-4xl font-semibold text-center text-white">Beach Safety</div>
+                        </div>
+                    </div>
+                    <div className="relative min-h-[350px] min-w-[500px] col-span-1 lg:col-span-2 rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${foodImg})` }} onClick={() => handleNavigate('/food-and-restaurants')}>
+                        <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
+                            <div className="text-4xl font-semibold text-center text-white">Food and Restaurants</div>
+                        </div>
+                    </div>
                 </div>
-                );
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
-                export default Homepage;
+export default Homepage;
