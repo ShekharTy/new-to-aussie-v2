@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
 
-.restaurant-container {
-    display: flex;
-    min-height: 100vh;
-    font-family: 'Cabin';
-    color: black;
-}
-
-.restaurant-container h1 {
-    margin-top: 0;
-    color: black; 
-    padding: 20px; 
-    font-size: large; 
-}
 
 .restaurant-sidebar {
     flex: 0 0 300px; 
