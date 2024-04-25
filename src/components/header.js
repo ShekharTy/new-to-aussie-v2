@@ -21,7 +21,7 @@ function Header() {
         onClick={() => navigate('/home')}
       />
       <div className='flex flex-col md:flex-row justify-center items-center'>
-        {['/home', '/events', '/road-safety', '/beach-safety', '/attribution'].map(path => (
+        {['/home', '/events', '/restaurant','/road-safety', '/beach-safety', '/attribution'].map(path => (
           <button 
             key={path}
             className={`text-white px-3 py-2 rounded-md text-xl font-medium m-2 transition-colors duration-200 ${isActive(path) ? 'bg-blue-700' : 'bg-transparent hover:bg-blue-700'}`}

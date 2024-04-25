@@ -10,6 +10,7 @@ import ScenarioComponent from './components/scenario-component';
 import Attributions from './components/attribution';
 import NotFoundPage from './components/not-found';
 import Password from './components/password';
+import RestaurantSearch from './components/restaurant';
 import Events from './components/events';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/swimsafety" element={<SwimSafety />} />
         <Route path="/warning" element={<Warning />} />
         <Route path="/beach-quiz" element={<Quiz />} />
+        <Route path="/restaurant" element={<RestaurantSearch />} />
         <Route path="/scenario-component" element={<ScenarioComponent />} />
         <Route path="/attribution" element={<Attributions />} />
         <Route path="*" element={<NotFoundPage />} />
