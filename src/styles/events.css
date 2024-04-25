@@ -3,3 +3,33 @@
 .relative{
     font-family: "Bebas Neue", sans-serif;
 }
+.event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .event-info {
+    padding: 10px;
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.8); 
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: xx-large;
+  }
+  
+  .event-name {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .event-date, .event-classification {
+    font-size: 16px;
+    color: #333;
+  }
+  

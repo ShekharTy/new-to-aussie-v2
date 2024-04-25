@@ -5,11 +5,13 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css'; // Import default Splide CSS
 import EventsBackground from '../data/events_bg.jpg';
 import '../styles/events.css';
+import EventModal from './modal';
 
 function Events() {
   const [eventsData, setEventsData] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [activeEvent, setActiveEvent] = useState(null);
 
   useEffect(() => {
     fetchEvents();
@@ -20,7 +22,13 @@ function Events() {
       fetchFilteredEvents(selectedCategory);
     }
   }, [selectedCategory]);
+  const handleEventClick = (event) => {
+    setActiveEvent(event); 
+  };
 
+  const closeModal = () => {
+    setActiveEvent(null);
+  };
   const getHighestResImage = (images) => {
     if (!images || images.length === 0) return '';
     return images.sort((a, b) => (b.width * b.height) - (a.width * a.height))[0].url;
@@ -73,7 +81,10 @@ function Events() {
       console.error('Error fetching filtered events:', error);
     }
   };
-
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: 'long', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
@@ -86,7 +97,7 @@ function Events() {
         </div>
       </div>
       <div className="container mx-auto px-4 py-6">
-        <h2 className="text-4xl font-bold text-center mb-6" style={ { fontFamily: '"Bebas Neue", sans-serif' }}>Upcoming Events</h2>
+        <h2 className="text-4xl font-bold text-center mb-6" style={{ fontFamily: '"Bebas Neue", sans-serif' }}>Upcoming Events</h2>
         <Splide options={{
           perPage: 2,
           rewind: true,
@@ -100,12 +111,18 @@ function Events() {
         }}>
           {eventsData.map(event => (
             <SplideSlide key={event.id}>
-              <a href={event.url} target="_blank" rel="noopener noreferrer">
-                <img src={getHighestResImage(event.images)} alt={event.name} className="mb-4 mx-auto" style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
-              </a>
-              <h3 className="text-lg font-bold text-center">{event.name}</h3>
-              <p className="text-center">{event.dates.start.localDate}</p>
-              <p className="text-gray-600 text-center">{event.classifications[0]?.segment.name}</p>
+              <div className="event-card" onClick={(e) => {
+                e.preventDefault(); 
+                handleEventClick(event);
+              }}>                <a href={event.url} target="_blank" rel="noopener noreferrer">
+                  <img src={getHighestResImage(event.images)} alt={event.name} style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
+                </a>
+                <div className="event-info">
+                  <h3 className="event-name">{event.name}</h3>
+                  <p className="event-date">{formatDate(event.dates.start.localDate)}</p>
+                  <p className="event-classification">{event.classifications[0]?.segment.name}</p>
+                </div>
+              </div>
             </SplideSlide>
           ))}
         </Splide>
@@ -133,6 +150,7 @@ function Events() {
           </div>
         </div>
       </div>
+      <EventModal event={activeEvent} onClose={closeModal} />
       <Footer />
     </div>
   );

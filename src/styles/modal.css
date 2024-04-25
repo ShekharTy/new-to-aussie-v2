@@ -1,0 +1,7 @@
+@media (max-width: 640px) {
+    .modal-content {
+      padding: 2rem 1rem;
+      max-width: 95%;
+    }
+  }
+  
