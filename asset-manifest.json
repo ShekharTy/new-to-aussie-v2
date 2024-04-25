@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/new-to-aussie-v2/static/css/main.63ee68a8.css",
-    "main.js": "/new-to-aussie-v2/static/js/main.be9297fa.js",
+    "main.css": "/new-to-aussie-v2/static/css/main.909b5e98.css",
+    "main.js": "/new-to-aussie-v2/static/js/main.8a17ec23.js",
     "static/js/453.f6fb25a1.chunk.js": "/new-to-aussie-v2/static/js/453.f6fb25a1.chunk.js",
     "static/media/cuisine.csv": "/new-to-aussie-v2/static/media/cuisine.90cb6e87b51b6c4bb023.csv",
     "static/media/scenario1.mp4": "/new-to-aussie-v2/static/media/scenario1.5832d97458cf4b03178b.mp4",
@@ -54,12 +54,12 @@
     "static/media/slick.ttf": "/new-to-aussie-v2/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/new-to-aussie-v2/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/new-to-aussie-v2/index.html",
-    "main.63ee68a8.css.map": "/new-to-aussie-v2/static/css/main.63ee68a8.css.map",
-    "main.be9297fa.js.map": "/new-to-aussie-v2/static/js/main.be9297fa.js.map",
+    "main.909b5e98.css.map": "/new-to-aussie-v2/static/css/main.909b5e98.css.map",
+    "main.8a17ec23.js.map": "/new-to-aussie-v2/static/js/main.8a17ec23.js.map",
     "453.f6fb25a1.chunk.js.map": "/new-to-aussie-v2/static/js/453.f6fb25a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63ee68a8.css",
-    "static/js/main.be9297fa.js"
+    "static/css/main.909b5e98.css",
+    "static/js/main.8a17ec23.js"
   ]
 }
