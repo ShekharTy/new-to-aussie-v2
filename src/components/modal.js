@@ -1,12 +1,11 @@
 import React from 'react';
-import '../styles/modal.css'
+import '../styles/modal.css';
 
 const EventModal = ({ event, onClose }) => {
   if (!event) return null;
 
-
   const convertCurrencyToAUD = (usd) => {
-    return (usd * 1.40).toFixed(2); 
+    return (usd * 1.40).toFixed(2);
   };
 
   const formatDate = (dateString) => {
@@ -25,6 +24,11 @@ const EventModal = ({ event, onClose }) => {
         <p><strong>Description:</strong> {event.info}</p>
         <p><strong>Tickets:</strong> {event.priceRanges ? `${convertCurrencyToAUD(event.priceRanges[0].min)} - ${convertCurrencyToAUD(event.priceRanges[0].max)} AUD` : 'Not available'}</p>
         <a href={event.url} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Get Tickets</a>
+        <div className="mt-6">
+          <h3 className="text-lg font-bold">Driving to the event?</h3>
+          <p className="mb-4">Make sure you're prepped with our road safety tips!</p>
+          <a href="/new-to-aussie-v2/#/road-safety" className="inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Road Safety Tips</a>
+        </div>
       </div>
     </div>
   );

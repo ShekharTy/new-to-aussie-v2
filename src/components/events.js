@@ -20,15 +20,19 @@ function Events() {
   useEffect(() => {
     if (selectedCategory) {
       fetchFilteredEvents(selectedCategory);
+    } else {
+      setFilteredEvents(eventsData); // Use the initial fetched events if no category is selected
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, eventsData]);
+
   const handleEventClick = (event) => {
-    setActiveEvent(event); 
+    setActiveEvent(event);
   };
 
   const closeModal = () => {
     setActiveEvent(null);
   };
+
   const getHighestResImage = (images) => {
     if (!images || images.length === 0) return '';
     return images.sort((a, b) => (b.width * b.height) - (a.width * a.height))[0].url;
@@ -48,11 +52,12 @@ function Events() {
         if (!uniqueEvents.has(event.name)) {
           uniqueEvents.add(event.name);
           eventsList.push(event);
-          if (eventsList.length === 20) break;
+          if (eventsList.length === 10) break;
         }
       }
 
       setEventsData(eventsList);
+      setFilteredEvents(eventsList); // Initially display these events in filtered section
     } catch (error) {
       console.error('Error fetching events:', error);
     }
@@ -81,10 +86,12 @@ function Events() {
       console.error('Error fetching filtered events:', error);
     }
   };
+
   const formatDate = (dateString) => {
     const options = { day: '2-digit', month: 'long', year: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
+
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
@@ -111,10 +118,8 @@ function Events() {
         }}>
           {eventsData.map(event => (
             <SplideSlide key={event.id}>
-              <div className="event-card" onClick={(e) => {
-                e.preventDefault(); 
-                handleEventClick(event);
-              }}>                <a href={event.url} target="_blank" rel="noopener noreferrer">
+              <div className="event-card" onClick={() => handleEventClick(event)}>
+                <a href={event.url} target="_blank" rel="noopener noreferrer">
                   <img src={getHighestResImage(event.images)} alt={event.name} style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
                 </a>
                 <div className="event-info">
@@ -136,21 +141,25 @@ function Events() {
             <option value="Music">Music</option>
             <option value="Theatre">Theatre</option>
           </select>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-            {filteredEvents.map(event => (
-              <SplideSlide key={event.id}>
-                <a href={event.url} target="_blank" rel="noopener noreferrer">
-                  <img src={getHighestResImage(event.images)} alt={event.name} className="mb-4 mx-auto" style={{ height: '300px', width: '100%', objectFit: 'cover' }} />
-                </a>
-                <h3 className="text-lg font-bold text-center">{event.name}</h3>
-                <p className="text-center">{event.dates.start.localDate}</p>
-                <p className="text-gray-600 text-center">{event.classifications[0]?.segment.name}</p>
-              </SplideSlide>
-            ))}
-          </div>
+          {filteredEvents.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              {filteredEvents.map(event => (
+                <SplideSlide key={event.id}>
+                  <div className="event-card" onClick={() => handleEventClick(event)}>
+                    <a href={event.url} target="_blank" rel="noopener noreferrer">
+                      <img src={getHighestResImage(event.images)} alt={event.name} className="mb-4 mx-auto" style={{ height: '300px', width: '100%', objectFit: 'cover' }} />
+                    </a>
+                    <h3 className="text-lg font-bold text-center">{event.name}</h3>
+                    <p className="text-center">{formatDate(event.dates.start.localDate)}</p>
+                    <p className="text-gray-600 text-center">{event.classifications[0]?.segment.name}</p>
+                  </div>
+                </SplideSlide>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-      <EventModal event={activeEvent} onClose={closeModal} />
+      {activeEvent && <EventModal event={activeEvent} onClose={closeModal} />}
       <Footer />
     </div>
   );

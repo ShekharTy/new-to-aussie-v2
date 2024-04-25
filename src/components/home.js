@@ -35,7 +35,7 @@ function Homepage() {
             </div>
             <div className="text-center py-5 border-y-8 border-black">
                 <h1 className="text-3xl font-bold text-black">Discover</h1>
-                <p className="text-xl text-black">Choose your next adventure</p>
+                <p className="text-xl text-black">Find Your Aussie Adventure</p>
             </div>
 
             <div className="w-full" style={{ padding: '0 20px' }}>
