@@ -4,8 +4,11 @@ import "../styles/spin-wheel.css";
 
 function createCasinoColorGenerator() {
   const casinoColors = [
-      "#C8102E", // Vivid Red
-      "#000000", // Black
+      "#ff0f7b", // Vivid Red
+      "#ff930f", // Black
+      "#45caff",
+      "red",
+      "blue",
   ];
   let currentIndex = 0;
 
@@ -21,9 +24,9 @@ const getCasinoColor = createCasinoColorGenerator();
 
 const cuisines = [];
 spinWheelData.map((current) => {
-  if (!cuisines.some((val) => current.Cuisine === val.cuisine)) {
+  if (!cuisines.some((val) => current["Spin Cuisines"] === val.cuisine)) {
     cuisines.push({
-      cuisine: current.Cuisine,
+      cuisine: current["Spin Cuisines"],
       color: getCasinoColor(),
     });
   }
@@ -35,14 +38,15 @@ const SpinWheel = () => {
   const [showList, setShowList] = useState(false);
   return (
     <>
-      <h2 style={{
-        marginBottom: 16
-      }}>Spin Wheel</h2>
+      <h2 className="mt-3 text-center">Still haven't decided what to eat? Use the spinwheel to decide.</h2>
       <div className="spin-container">
         {initState ? (
           <div
             className="spin-button"
             onClick={() => {
+              setTimeout(() => {
+                setShowList(true);
+              }, 3000);
               setInitState(false);
               setRandIndex(Math.floor(Math.random() * cuisines.length));
             }}
@@ -55,6 +59,7 @@ const SpinWheel = () => {
             onClick={() => {
               setInitState(true);
               setRandIndex(0);
+              setShowList(false);
             }}
           >
             Reset
@@ -76,7 +81,7 @@ const SpinWheel = () => {
               style={{
                 backgroundColor: cuisine.color,
                 transform: `rotate(${(360 / cuisines.length) * index + 45}deg)`,
-                clipPath: "polygon(0 0, 19% 0, 100% 100%, 0 19%)",
+                clipPath: "polygon(0 0, 40% 0, 100% 100%, 0 40%)",
               }}
             >
               <span>{cuisine.cuisine}</span>
@@ -84,48 +89,30 @@ const SpinWheel = () => {
           ))}
         </div>
       </div>
-      {!initState && (
-        <>
-          <h2>Current Cuisine: {cuisines[randIndex].cuisine}</h2>
-          <button
-            className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => {
-              setShowList(!showList);
-            }}
-          >
-            Show Restaurant
-          </button>
-        </>
-      )}
       {(!initState && showList) && (
-        <table border={1} style={{
-          marginTop: "16px"
-        }}>
-          <thead>
-            <tr>
-            <td>Suburb</td>
-            <td>Name</td>
-            <td>Link</td>
-            </tr>
-          </thead>
-          <tbody>
+          <>
+          <h2 className="mx-3 mb-5 text-center">We Recommend: {cuisines[randIndex].cuisine}</h2>
+          <div className="grid grid-cols-4 gap-4 animate__animated animate__fadeInUp m-3 mb-5">
           {spinWheelData
-            .filter((item) => item.Cuisine === cuisines[randIndex].cuisine)
+            .filter((item) => item["Spin Cuisines"] === cuisines[randIndex].cuisine)
             .map((cuisine) => {
               return (
-                <tr key={`${cuisine["Block ID"]}-${cuisine["Property ID"]}-${cuisine["Trading name"]}`}>
-                  <td>{cuisine.Suburb}</td>
-                  <td>{cuisine["Trading name"]}</td>
-                  <td>
-                    <a href={cuisine["Google Search Link"]} target="_blank">
-                        Link
-                    </a>
-                  </td>
-                </tr>
+                <div key={`${cuisine["Block ID"]}-${cuisine["Property ID"]}-${cuisine["Trading name"]}`} className="border p-4 bg-white rounded">
+                  <h3 className="text-lg font-semibold">{cuisine["Trading name"]}</h3>
+                  <p className="text-gray-600">{cuisine.Suburb}</p>
+                  <a
+                    href={cuisine["Google Search Link"]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Google Link
+                  </a>
+                </div>
               );
             })}
-          </tbody>
-        </table>
+          </div>
+          </>
       )}
     </>
   );

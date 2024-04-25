@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    margin: 20px auto;
 }
 
 .spin-container .spin-wheel {
@@ -14,9 +15,8 @@
     width: 100%;
     background-color: #333;
     border-radius: 50%;
-    border: solid 8px gold;
-    box-shadow: 0 0 15px #333 inset, 0 0 15px gold;
-    
+    border: solid 5px #888;
+    box-shadow: 0 0 15px #333 inset, 0 0 15px #888;
 }
 
 .spin-container .spin-button {
