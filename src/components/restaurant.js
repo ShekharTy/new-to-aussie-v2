@@ -19,7 +19,7 @@ function RestaurantSearch() {
   const [filteredSuburbs, setFilteredSuburbs] = useState([]);
 
   useEffect(() => {
-    document.title = `Restaurant Search`;
+    document.title = `New To Aussie - Restaurant`;
     // Parse CSV data and set restaurants on component mount
     parseCSV(CuisineData);
   }, []);
