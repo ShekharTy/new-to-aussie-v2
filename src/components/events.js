@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Footer from './footer';
-import Slider from "react-slick";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css'; // Import default Splide CSS
 import EventsBackground from '../data/events_bg.jpg';
 import '../styles/events.css';
 
-// Importing slick carousel styles
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 function Events() {
   const [eventsData, setEventsData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      fetchFilteredEvents(selectedCategory);
+    }
+  }, [selectedCategory]);
+
+  const getHighestResImage = (images) => {
+    if (!images || images.length === 0) return '';
+    return images.sort((a, b) => (b.width * b.height) - (a.width * a.height))[0].url;
+  };
 
   const fetchEvents = async () => {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -21,37 +34,44 @@ function Events() {
       const response = await fetch(url);
       const data = await response.json();
       const uniqueEvents = new Set();
-      const filteredEvents = [];
+      const eventsList = [];
 
       for (const event of data._embedded.events) {
         if (!uniqueEvents.has(event.name)) {
           uniqueEvents.add(event.name);
-          filteredEvents.push(event);
-          if (filteredEvents.length === 5) break;
+          eventsList.push(event);
+          if (eventsList.length === 20) break;
         }
       }
 
-      setEventsData(filteredEvents);
+      setEventsData(eventsList);
     } catch (error) {
       console.error('Error fetching events:', error);
     }
   };
 
-  useEffect(() => {
-    fetchEvents();
-  }, []);
+  const fetchFilteredEvents = async (category) => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${encodeURIComponent(category)}&dmaId=305&apikey=${apiKey}`;
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: "linear",
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const uniqueEvents = new Set();
+      const categoryEvents = [];
+
+      for (const event of data._embedded.events) {
+        if (!uniqueEvents.has(event.name)) {
+          uniqueEvents.add(event.name);
+          categoryEvents.push(event);
+          if (categoryEvents.length === 10) break;
+        }
+      }
+
+      setFilteredEvents(categoryEvents);
+    } catch (error) {
+      console.error('Error fetching filtered events:', error);
+    }
   };
 
   return (
@@ -66,64 +86,55 @@ function Events() {
         </div>
       </div>
       <div className="container mx-auto px-4 py-6">
-        <h2 className="text-2xl font-bold text-center mb-6">Upcoming Events</h2>
-        <Slider {...settings}>
+        <h2 className="text-4xl font-bold text-center mb-6" style={ { fontFamily: '"Bebas Neue", sans-serif' }}>Upcoming Events</h2>
+        <Splide options={{
+          perPage: 2,
+          rewind: true,
+          width: '100%',
+          gap: '1rem',
+          padding: { right: '5rem', left: '5rem' },
+          autoplay: true,
+          pauseOnHover: true,
+          autoplaySpeed: 3000,
+          type: 'loop'
+        }}>
           {eventsData.map(event => (
-            <div key={event.id} className="p-4 text-center">
+            <SplideSlide key={event.id}>
               <a href={event.url} target="_blank" rel="noopener noreferrer">
-                <img src={event.images[0].url} alt={event.name} className="rounded-lg mb-4 mx-auto" style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
+                <img src={getHighestResImage(event.images)} alt={event.name} className="mb-4 mx-auto" style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
               </a>
-              <h3 className="text-lg font-bold">{event.name}</h3>
-              <p>{event.dates.start.localDate}</p>
-              <p className="text-gray-600">{event.classifications[0]?.segment.name}</p>
-            </div>
+              <h3 className="text-lg font-bold text-center">{event.name}</h3>
+              <p className="text-center">{event.dates.start.localDate}</p>
+              <p className="text-gray-600 text-center">{event.classifications[0]?.segment.name}</p>
+            </SplideSlide>
           ))}
-        </Slider>
-      </div>
-      <div className="bg-white py-6">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="category" className="font-bold mb-2 block">Categories</label>
-              <select multiple size="4" id="category" className="border border-gray-300 rounded p-2 w-full">
-                <option value="Art">Art</option>
-                <option value="Technology">Sport</option>
-                <option value="Music">Comedy</option>
-                <option value="Film">Music</option>
-                <option value="Film">Theatre</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="date" className="font-bold mb-2 block">Event Date</label>
-              <input type="date" id="date" className="border border-gray-300 rounded p-2 w-full" onChange={(e) => setSelectedDate(e.target.value)} />
-            </div>
+        </Splide>
+        <div className="mt-10">
+          <label htmlFor="category" className="font-bold mb-2 block">Filter By Category</label>
+          <select id="category" className="border border-gray-300 rounded p-2 w-full" onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option value="">Select a Category</option>
+            <option value="Art">Art</option>
+            <option value="Sport">Sport</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Music">Music</option>
+            <option value="Theatre">Theatre</option>
+          </select>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            {filteredEvents.map(event => (
+              <SplideSlide key={event.id}>
+                <a href={event.url} target="_blank" rel="noopener noreferrer">
+                  <img src={getHighestResImage(event.images)} alt={event.name} className="mb-4 mx-auto" style={{ height: '300px', width: '100%', objectFit: 'cover' }} />
+                </a>
+                <h3 className="text-lg font-bold text-center">{event.name}</h3>
+                <p className="text-center">{event.dates.start.localDate}</p>
+                <p className="text-gray-600 text-center">{event.classifications[0]?.segment.name}</p>
+              </SplideSlide>
+            ))}
           </div>
         </div>
       </div>
       <Footer />
     </div>
-  );
-}
-
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black", borderRadius: "50%" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function PrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black", borderRadius: "50%" }}
-      onClick={onClick}
-    />
   );
 }
 
