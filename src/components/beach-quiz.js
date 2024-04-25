@@ -161,9 +161,6 @@ const Quiz = () => {
 
   return (
     <div className="quiz-container">
-      <div className="back-link-container">
-        <Link to="/beach-safety" className="back-to-beach-safety">&#8592; Back to Beach Safety</Link>
-      </div>
       <div className="quiz-layout">
         <div className="quiz">
           {showReviewPage ? (

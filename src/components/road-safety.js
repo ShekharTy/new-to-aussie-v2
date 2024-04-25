@@ -20,7 +20,7 @@ function RoadSafety() {
     ]);
 
     useEffect(() => {
-        document.title = `Road Safety`;
+        document.title = `New To Aussie - Road Safety`;
         const calculatedProgress = ((currentMythIndex + 1) / myths.length) * 100;
         setProgress(calculatedProgress);
     }, [currentMythIndex, myths.length]);

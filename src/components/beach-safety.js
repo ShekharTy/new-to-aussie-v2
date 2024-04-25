@@ -13,7 +13,7 @@ function BeachSafety() {
   const [selectedModule, setSelectedModule] = useState('');
 
   useEffect(() => {
-    document.title = `Beach Safety`;
+    document.title = `New To Aussie - Beach Safety`;
   }, []);
 
   const moduleContent = () => {

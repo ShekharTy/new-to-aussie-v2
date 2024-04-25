@@ -11,6 +11,7 @@ import Attributions from './components/attribution';
 import NotFoundPage from './components/not-found';
 import Password from './components/password';
 import RestaurantSearch from './components/restaurant';
+import Events from './components/events';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Password />} />
         <Route path="/password" element={<Password />} />
         <Route path="/home" element={<Homepage />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/road-safety" element={<RoadSafety />} />
         <Route path="/beach-safety" element={<BeachSafety />} />
         <Route path="/swimsafety" element={<SwimSafety />} />

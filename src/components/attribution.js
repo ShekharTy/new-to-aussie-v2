@@ -4,7 +4,7 @@ import Footer from './footer';
 
 function Attributions() {
     useEffect(() => {
-        document.title = `Attributions`;
+        document.title = `New To Aussie - Attributions`;
     });
 
     return (
