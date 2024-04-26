@@ -57,7 +57,7 @@ function Homepage() {
                             <div className="text-4xl font-semibold text-center text-white">Beach Safety</div>
                         </div>
                     </div>
-                    <div className="relative min-h-[350px] min-w-[500px] col-span-1 lg:col-span-2 rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${foodImg})` }} onClick={() => handleNavigate('/food-and-restaurants')}>
+                    <div className="relative min-h-[350px] min-w-[500px] col-span-1 lg:col-span-2 rounded-lg shadow-lg cursor-pointer bg-cover bg-center" style={{ backgroundImage: `url(${foodImg})` }} onClick={() => handleNavigate('/restaurant')}>
                         <div className="bg-black bg-opacity-30 p-4 rounded flex items-center justify-center h-full hover:bg-opacity-90 transition duration-300 ease-in-out">
                             <div className="text-4xl font-semibold text-center text-white">Food and Restaurants</div>
                         </div>

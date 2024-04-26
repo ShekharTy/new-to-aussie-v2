@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaHome, FaSwimmer, FaRoad, FaInfoCircle, FaArrowUp } from 'react-icons/fa';
+import { FaHome, FaSwimmer, FaRoad, FaInfoCircle, FaArrowUp, FaCalendarAlt, FaUtensils } from 'react-icons/fa'; // Import additional icons
 
 function Footer() {
   let navigate = useNavigate();
@@ -21,13 +21,15 @@ function Footer() {
               <FaHome className="text-white mr-2 text-2xl"/>
               <span className="text-xl text-white">New To Aussie</span>
             </span>
-            <p className="mt-2 text-sm text-white">Developed to guide overseas visitors through Australia’s safety rules and social etiquettes in an engaging, gamified way.</p>
+            <p className="mt-2 text-sm text-white">Explore Australia with a comprehensive guide to local safety rules, events, and dining options, designed to enrich the experience of overseas visitors.</p>
           </div>
           <div className="px-4 py-2 m-2">
             <nav className="list-none">
               <li><button onClick={() => navigate('/')} className="text-white hover:text-gray-200 flex items-center"><FaHome className="mr-2"/>Home</button></li>
               <li><button onClick={() => navigate('/road-safety')} className="text-white hover:text-gray-200 flex items-center"><FaRoad className="mr-2"/>Road Safety</button></li>
               <li><button onClick={() => navigate('/beach-safety')} className="text-white hover:text-gray-200 flex items-center"><FaSwimmer className="mr-2"/>Beach Safety</button></li>
+              <li><button onClick={() => navigate('/events')} className="text-white hover:text-gray-200 flex items-center"><FaCalendarAlt className="mr-2"/>Events</button></li>
+              <li><button onClick={() => navigate('/restaurant')} className="text-white hover:text-gray-200 flex items-center"><FaUtensils className="mr-2"/>Restaurants</button></li>
               <li><button onClick={() => navigate('/attribution')} className="text-white hover:text-gray-200 flex items-center"><FaInfoCircle className="mr-2"/>Attributions</button></li>
             </nav>
           </div>
